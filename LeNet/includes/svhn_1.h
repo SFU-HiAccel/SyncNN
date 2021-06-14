@@ -1,0 +1,121 @@
+//SVHN - Network 1
+//32C3, P2, 32C3, 256, 10
+
+
+//ZCU104
+#ifdef __SDSCC__
+typedef ap_fixed<8,2,AP_RND> w_dt;
+typedef ap_fixed<18,14,AP_RND> q_dt;
+typedef ap_fixed<18,14,AP_RND> q2_dt;
+typedef ap_uint<8> i_dt;
+typedef ap_uint<15> sr_dt;
+typedef ap_uint<12> sc_dt;
+const int INTERFACE_WIDTH = 8;
+const int WWIDTH = 8;
+#define IW ap_uint<INTERFACE_WIDTH>
+#define WW ap_uint<WWIDTH>
+const int WIDTH_FACTOR = INTERFACE_WIDTH/WWIDTH;
+#else
+typedef float w_dt;
+typedef float q_dt;
+typedef float q2_dt;
+typedef int i_dt;
+typedef int sr_dt;
+typedef int sc_dt;
+#endif
+const w_dt vth = 1.0;
+const w_dt sf1 = 0.3;
+const w_dt sf2 = 0.3;
+const w_dt sf3 = 0.3;
+const w_dt sf4 = 0.3;
+const w_dt sf5 = 0.3;
+const w_dt sf6 =  0.15;
+const int NumKernels = 2;
+const int BufRows = 1152;
+const int IMaps = 1;
+const int Maps = 32;
+const int CIMaps = 8;
+const int Part = 16;
+const int EMaps = 16;
+const int PMaps = 16;
+const int FUnroll = 1;
+const int FPart = 8;
+const int TSims = 400;
+const int Sims = 400;
+const int MaxNeurons = 1100;
+
+
+
+////ZCU102
+//#ifdef __SDSCC__
+//typedef ap_fixed<8,2,AP_RND> w_dt;
+//typedef ap_fixed<18,14,AP_RND> q_dt;
+//typedef ap_fixed<18,14,AP_RND> q2_dt;
+//typedef ap_uint<8> i_dt;
+//typedef ap_uint<15> sr_dt;
+//typedef ap_uint<12> sc_dt;
+//const int INTERFACE_WIDTH = 8;
+//const int WWIDTH = 8;
+//#define IW ap_uint<INTERFACE_WIDTH>
+//#define WW ap_uint<WWIDTH>
+//const int WIDTH_FACTOR = INTERFACE_WIDTH/WWIDTH;
+//#else
+//typedef float w_dt;
+//typedef float q_dt;
+//typedef float q2_dt;
+//typedef int i_dt;
+//typedef int sr_dt;
+//typedef int sc_dt;
+//#endif
+//const w_dt vth = 1.0;
+//const w_dt sf1 = 0.3;
+//const w_dt sf2 = 0.3;
+//const w_dt sf3 = 0.3;
+//const w_dt sf4 = 0.3;
+//const w_dt sf5 = 0.3;
+//const w_dt sf6 =  0.15;
+//const int NumKernels = 2;
+//const int BufRows = 1152;
+//const int IMaps = 1;
+//const int Maps = 32;
+//const int CIMaps = 8;
+//const int Part = 16;
+//const int EMaps = 16;
+//const int PMaps = 16;
+//const int FUnroll = 64;
+//const int TSims = 400;
+//const int Sims = 400;
+//const int MaxNeurons = 1100;
+
+
+//Common
+const int NumLayers = 7;
+const int StrideC = 1;
+const int StrideP = 2;
+#define scale 0.25
+const int KSide = 3;
+const int MapsMax = 32;
+const int SideMax = 30;
+const int Sources =3072;
+const int Output = 10;
+const int PaddingC = 0;
+const int PaddingP = 0;
+const int Side1 = 32;
+const int Side2 =30;
+const int Side3 =15;
+const int Side4 =13;
+const int Side5 =6;
+const int KSide1 =3;
+const int KSide2 =2;
+const int KSide3 =3;
+const int KSide4 =2;
+const int Maps1 =3;
+const int Maps2 =32;
+const int Maps3 =32;
+const int Maps4 =32;
+const int Maps5 =32;
+const int Layer1 = 1152;
+const int Layer2 = 256;
+const int MaxRows = 1152;
+const int MaxCols = 256;
+const int MaxFc = 256;

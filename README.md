@@ -20,6 +20,10 @@ If you use SyncNN in your research, please cite our FPL'21 paper:
 2. **Software tools:**
     * **HLS tool:**
       * Xilinx SDSoC 2019.1
+    * **Training Network**
+      * Google Collab or any Python compiler supporting Jupyter Notebook
+    * **Software Version**
+      * Any personal PC/IDE that support G++ compiler  
 
 ## Accelerate SNN Algorithm using SyncNN
 
@@ -51,7 +55,17 @@ Assuming you are in the project home directory of the checked out SyncNN github 
 
 
 3. Quantize Networks
-
+    * Change directory to `quantize/`
+    * This part involves the reduction of network weight precision to lower number of  bits (16 bits, 8 bits and 4 bits).
+    * The quantize folder has three different networks.
+      * **lenet_quantize.ipynb** - LeNet network 
+      * **nin_quantize.ipynb** - NiN network 
+      * **vgg_quantize.ipynb** - VGG13 network
+      The LeNet network supports 16, 8, and 4 bits. The NiN and VGG networks supports 16 and 8 bits. 
+    * Load the '.h5 file' correspondingly for the choosen network. Change the name of the load_model to the choosen .h5 file.
+    * Set the 'bits' variable with the number of bits needed for network weights. 
+    * Set the 'p' variable with the percentile of weights to skip from both ends.
+    *  The code would retrieve weights as .h files for every layer. Save them.
 
 4. Configure SyncNN
     * Change directory to `<$CHIP-KNN_HOME>/scripts/`

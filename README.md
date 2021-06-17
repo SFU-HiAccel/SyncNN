@@ -75,7 +75,14 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * Change directory to `design/`
     * Choose the network folder that you wish to evaulate.
       * **LeNet** or **NiN** or **VGG**
-    
+
+
+	Network	      | Configuration
+	------------- | -------------
+	LeNet-S       | Input-32C3-P2-32C3-P2-256-Output
+	LeNet-L       | Input-32C5-P2-64C5-P2-2048-Output
+	NiN	      | Input-(192C5-192C1-192C1-P3)*2-192C5-192C1-10C1-GAP-Output
+	VGG	      | Input-(64C3-64C3-P2)-(128C3-128C3-P2)-(256C3-256C3-P2)-(512C3-512C3-P2)*2-256-256-Output
     
 
 5. Build SyncNN Design

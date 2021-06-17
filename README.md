@@ -75,15 +75,26 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * Change directory to `design/`
     * Choose the network folder that you wish to evaulate.
       * **LeNet** or **NiN** or **VGG**
-
-
+    * The following network configurations are evaluated.
+    
 	Network	      | Configuration
 	------------- | -------------
-	LeNet-S       | Input-32C3-P2-32C3-P2-256-Output
-	LeNet-L       | Input-32C5-P2-64C5-P2-2048-Output
+	Lenet-S       | Input-32C3-P2-32C3-P2-256-Output
+	Lenet-L       | Input-32C5-P2-64C5-P2-2048-Output
 	NiN	      | Input-(192C5-192C1-192C1-P3)*2-192C5-192C1-10C1-GAP-Output
 	VGG	      | Input-(64C3-64C3-P2)-(128C3-128C3-P2)-(256C3-256C3-P2)-(512C3-512C3-P2)*2-256-256-Output
-    
+	
+    * 	
+    	* MNIST dataset is tested for Lenet-S and Lenet-L and the network configuarations are available in `LeNet/includes/mnist_1.h` and `LeNet/includes/mnist_2.h`
+    	* SVHN dataset is tested for Lenet-S and VGG and the network configuarations are available in `LeNet/includes/svhn_1.h` and `VGG/includes/svhn_2.h`
+    	* CIFAR-10 dataset is tested for NiN and VGG and the network configuarations are available in `NiN/includes/cifar10_1.h` and `VGG/includes/cifar10_2.h`
+    	* Note: SyncNN supports any network configuration or network. When we try a new network, the configurations has to be modified accordingly.
+    * The next step is choose the Xilinx SoC FPGA platform. We have tested on three boards: 
+        * Xilinx ZCU 102 Board
+        * Xilinx ZCU 104 Board
+        * Xilinx ZED Board
+    * The Unroll parameters for each board varies based on the available resources in the board. The parameters are available in the network configuration files.
+    * The parameters are choosen such that the resource utilization is around 80% utilized for all the resources (BRAM, URAM, DSP, LUT, FF).
 
 5. Build SyncNN Design
     * Change directory to `<$CHIP-KNN_HOME>/scripts/gen_test`

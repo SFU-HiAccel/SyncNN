@@ -67,8 +67,12 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * Set the 'p' variable with the percentile of weights to skip from both ends.
     *  The code would retrieve weights as .h files for every layer. Save them.
 
+
+> Note: The following link contains pre-trained network (.h files) for MNIST network at 4 bits precision. 
+  https://drive.google.com/drive/folders/1Ldh3FblFktVm4c3h7cyvigiBbBLZ9qhI?usp=sharing
+
 4. Configure SyncNN
-    * Change directory to `<$CHIP-KNN_HOME>/scripts/`
+    * Change directory to `design/`
     * Update KNN parameters:
       * **N** - # of points in search space,
       * **D** - # of data dimension,

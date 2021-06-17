@@ -73,21 +73,9 @@ Assuming you are in the project home directory of the checked out SyncNN github 
 
 4. Configure SyncNN
     * Change directory to `design/`
-    * Update KNN parameters:
-      * **N** - # of points in search space,
-      * **D** - # of data dimension,
-      * **Dist** - distance metric,
-      * **K** - # of nearest neighbors
-    * Update FPGA platform specifications:
-      * **FPGA_part_name** - FPGA part name used during Vivado_HLS synthesis
-      * **num_SLR** - # of Super-Logic-Regions (SLRs) on the FPGA
-      * **SLR_resource** - available resources on each SLR (FPGA dies)
-      * **memory** - off-chip memory type on the FPGA
-      * **num_memory_banks** - # of available memory banks on the FPGA
-    * Update advanced design configurations (***optional**):
-      * **singlePE_template_config** - list of single PE configurations based on port_width and buffer_size to explore 
-      * **resource_limit** - upper limit scale for the FPGA resource utilization
-      * **kernel_frequency** - frequency constraint when building hw kernels
+    * Choose the network folder that you wish to evaulate.
+      * **LeNet** or **NiN** or **VGG**
+    
     
 
 5. Build SyncNN Design

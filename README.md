@@ -68,8 +68,8 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     *  The code would retrieve weights as .h files for every layer. Save them.
 
 
-> Note: The following link contains pre-trained network (.h files) for MNIST network at 4 bits precision. 
-  https://drive.google.com/drive/folders/1Ldh3FblFktVm4c3h7cyvigiBbBLZ9qhI?usp=sharing
+	> Note: The following link contains pre-trained network (.h files) for MNIST network at 4 bits precision. 
+  	https://drive.google.com/drive/folders/1Ldh3FblFktVm4c3h7cyvigiBbBLZ9qhI?usp=sharing
 
 4. Configure SyncNN
     * Change directory to `design/`
@@ -96,16 +96,18 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * The Unroll parameters for each board varies based on the available resources in the board. The parameters are available in the network configuration files.
     * The parameters are choosen such that the resource utilization is around 80% utilized for all the resources (BRAM, URAM, DSP, LUT, FF).
 
-5. Build SyncNN Design
-    * Change directory to `<$CHIP-KNN_HOME>/scripts/gen_test`
-    * Run: `make build TARGET=hw DEVICE=<FPGA platform>`
-    * Output: 
-      * host code: `knn`
-      * kernel code: `build_dir.hw.<FPGA platform>/knn.xclbin`
+5. Include Dataset
+    * The final step is to include the dataset to the design. 
+    * MNIST, CIFAR-10, SVHN dataset in the .txt format containing the image and the label is available in 
+      > https://drive.google.com/drive/folders/1qgdQLAZ8ycwN7RCV1TKskYheysSfjka9?usp=sharing
+    * Add the dataset you prefer in `design/<network>/includes/`
+    * Also include the dataset in `design/<network>/tb.cpp/` using ifstream.
 
-6. Run SyncNN
-    * Change directory to `<$CHIP-KNN_HOME>/scripts/gen_test`
-    * Run: `make check TARGET=hw DEVICE=<FPGA platform>` or `./knn knn.xclbin`
+6. Build SyncNN Design
+
+
+7. Run SyncNN
+
 
 Now you have completed the flow of the framework. Hack the code and have fun!
 

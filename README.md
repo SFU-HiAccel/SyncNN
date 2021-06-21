@@ -104,16 +104,32 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * Also include the dataset in `design/<network>/tb.cpp/` using ifstream.
 
 6. Build SyncNN Design
-
-
-7. Run SyncNN
-
-
-Now you have completed the flow of the framework. Hack the code and have fun!
+    * Software Mode
+    	* Change directory to `design/`
+    	* Every `<network>` contains a Makefile.
+    	* Issue the command `make all` from your IDE or personal computer.
+    	* Once the build is over, executible named `snn` will be created.
+    	* To run, issue `./snn <number of images>`.
+    * Hardware Mode
+    	* Change directory to `design/`
+    	* Create a project in SDSoC application for every network.
+    	* Toggle `network` function to Hardware.
+    	* Set Hardware at 200MHz for ZCU102 board, 150MHz for ZCU104 board, and 100MHz for ZED board.
+    	* Build the project.
+  
+ 7. Run SyncNN
+    * Once the build is over, an SD Card folder is created.
+    * Copy the folder contents to an SD card.
+    * Insert the SD card to the FPGA board.
+    * Set the FPGA board in SD card boot mode.
+    * Boot the FPGA and visualize in serial monitor.
+    * Change the directory to mount (`cd /mnt`)
+    * Run the application `./snn <number of images>`.
+    
 
 ## Contacts
 
-Still have further questions about SyncNN? Please contact:
+If you have further questions about SyncNN, please contact:
 
 * **Sathish Panchapakesan**, MASc Student
 

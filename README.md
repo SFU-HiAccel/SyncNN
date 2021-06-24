@@ -73,8 +73,9 @@ Assuming you are in the project home directory of the checked out SyncNN github 
 
 4. Configure SyncNN
     * Change directory to `design/`
-    * Choose the network folder that you wish to evaulate.
+    * Choose the network folder that you wish to evaluate.
       * **LeNet** or **NiN** or **VGG**
+    * Add the trained weights (.h files) in a folder `design/<network>/includes` and include them in `design/<network>/tb.cpp`.
     * The following network configurations are evaluated.
     
 	Network	      | Configuration
@@ -88,7 +89,7 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     	* MNIST dataset is tested for Lenet-S and Lenet-L and the network configuarations are available in `LeNet/includes/mnist_1.h` and `LeNet/includes/mnist_2.h`
     	* SVHN dataset is tested for Lenet-S and VGG and the network configuarations are available in `LeNet/includes/svhn_1.h` and `VGG/includes/svhn_2.h`
     	* CIFAR-10 dataset is tested for NiN and VGG and the network configuarations are available in `NiN/includes/cifar10_1.h` and `VGG/includes/cifar10_2.h`
-    	* Note: SyncNN supports any network configuration or network. When we try a new network, the configurations has to be modified accordingly.
+    	* Note: SyncNN supports any network configuration or network. When we try a new network, the configurations have to be modified accordingly.
     * The next step is choose the Xilinx SoC FPGA platform. We have tested on three boards: 
         * Xilinx ZCU 102 Board
         * Xilinx ZCU 104 Board
@@ -108,7 +109,7 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     	* Change directory to `design/`
     	* Every `<network>` contains a Makefile.
     	* Issue the command `make all` from your IDE or personal computer.
-    	* Once the build is over, executible named `snn` will be created.
+    	* Once the build is over, an executable named `snn` will be created.
     	* To run, issue `./snn <number of images>`.
     * Hardware Mode
     	* Change directory to `design/`

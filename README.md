@@ -65,8 +65,13 @@ Assuming you are in the project home directory of the checked out SyncNN github 
     * Load the '.h5 file' correspondingly for the choosen network. Change the name of the load_model to the choosen .h5 file.
     * Set the 'bits' variable with the number of bits needed for network weights. 
     * Set the 'p' variable with the percentile of weights to skip from both ends.
+    * For networks which have Dense Layers after Pooling Layer, we have to flatten the pooling layer and reshape it for dense layer. 
+	arrd1= arrd1.reshape(6,6,32,256)
+	arrd1=np.transpose(arrd1,(2,0,1,3))
+	arrd1=arrd1.reshape(1152,256)
+      The parameters are modified based on the layer size.
     *  The code would retrieve weights as .h files for every layer. Save them.
-
+    *  Also, note the scaling factors printed after the quantization.
 
 	> Note: The following link contains pre-trained network (.h files) for MNIST network at 4 bits precision. 
   	https://drive.google.com/drive/folders/1Ldh3FblFktVm4c3h7cyvigiBbBLZ9qhI?usp=sharing
@@ -96,6 +101,7 @@ Assuming you are in the project home directory of the checked out SyncNN github 
         * Xilinx ZED Board
     * The Unroll parameters for each board varies based on the available resources in the board. The parameters are available in the network configuration files.
     * The parameters are choosen such that the resource utilization is around 80% utilized for all the resources (BRAM, URAM, DSP, LUT, FF).
+    * Modify the scaling factor (sf) values in the configuration files based on the results obtained during quantization. 
 
 5. Include Dataset
     * The final step is to include the dataset to the design. 
